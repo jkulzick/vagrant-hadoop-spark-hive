@@ -5,9 +5,9 @@ Vagrant for Hadoop, Spark and Hive
 
 Vagrant project to spin up a single virtual machine running:
 
-* Hadoop 2.7.2
+* Hadoop 2.7.3
 * Hive 1.2.1
-* Spark 1.6.0
+* Spark 2.1.0
 
 The virtual machine will be running the following services:
 
@@ -20,7 +20,7 @@ The virtual machine will be running the following services:
 
 1. [Download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
-3. Run ```vagrant box add centos65 https://github.com/2creatives/vagrant-centos/releases/download/v6.5.1/centos65-x86_64-20131205.box```
+3. Run ```vagrant box add centos/7```
 4. Go to [releases](https://github.com/alexholmes/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
 5. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive-<version>`).
 6. Run ```vagrant up``` to create the VM.
