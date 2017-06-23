@@ -1,10 +1,12 @@
 Vagrant.require_version ">= 1.4.3"
 VAGRANTFILE_API_VERSION = "2"
 
+%x(vagrant plugin install vagrant-vbguest) unless Vagrant.has_plugin?('vagrant-vbguest')
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     i = 1
     config.vm.define "node#{i}" do |node|
-        
+
         node.vm.box = "centos/7"
         node.vm.synced_folder ".", "/vagrant", type: "virtualbox"
 
