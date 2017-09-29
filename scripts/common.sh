@@ -12,7 +12,7 @@ HADOOP_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hadoop/core/$HADOOP_VERSIO
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
 # hive
-HIVE_VERSION=hive-1.2.1
+HIVE_VERSION=hive-2.2.0
 HIVE_ARCHIVE=apache-$HIVE_VERSION-bin.tar.gz
 HIVE_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hive/$HIVE_VERSION/$HIVE_ARCHIVE
 HIVE_RES_DIR=/vagrant/resources/hive
