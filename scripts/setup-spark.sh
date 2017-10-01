@@ -21,6 +21,9 @@ function setupSpark {
 	cp -f /vagrant/resources/spark/slaves /usr/local/spark/conf
 	cp -f /vagrant/resources/spark/spark-env.sh /usr/local/spark/conf
 	cp -f /vagrant/resources/spark/spark-defaults.conf /usr/local/spark/conf
+
+	# allows spark to write to hive
+	ln -s $HIVE_CONF_DIR/hive-site.xml $SPARK_CONF_DIR/hive-site.xml
 }
 
 function setupEnvVars {
