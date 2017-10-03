@@ -2,6 +2,7 @@
 
 yum -y install mariadb-server
 systemctl start mariadb
+systemctl enable mariadb
 
 
 cat << EOF | mysql -u root
