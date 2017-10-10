@@ -38,7 +38,6 @@ function setupEnvVars {
 }
 
 function initSchema {
-	yum -y install wget
 	wget http://central.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar
 	mv mysql-connector-java-8.0.7-dmr.jar $HIVE_HOME/lib/
 	$HIVE_HOME/bin/schematool -dbType mysql -initSchema

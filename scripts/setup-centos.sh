@@ -39,8 +39,10 @@ function createSSHKey {
 
 function setupUtilities {
     # so the `locate` command works
-    yum install -y mlocate
+    yum -y install mlocate
     updatedb
+
+	yum -y install wget
 }
 
 echo "setup centos"
