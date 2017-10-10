@@ -49,24 +49,6 @@ function formatHdfs {
     hdfs namenode -format
 }
 
-function startDaemons {
-    #/vagrant/scripts/start-hadoop.sh
-}
-
-function setupHdfs {
-    echo "creating user home directory in hdfs"
-    hdfs dfs -mkdir -p /user/root
-    hdfs dfs -mkdir -p /user/vagrant
-    hdfs dfs -chown vagrant /user/vagrant
-
-    echo "creating temp directories in hdfs"
-    hdfs dfs -mkdir -p /tmp
-    hdfs dfs -chmod -R 777 /tmp
-
-    hdfs dfs -mkdir -p /var
-    hdfs dfs -chmod -R 777 /var
-}
-
 echo "setup hadoop"
 
 installHadoop
