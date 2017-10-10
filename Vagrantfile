@@ -31,6 +31,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.provision "shell",  run: "always", path: "scripts/start-hive.sh"
 
         node.vm.provision "shell", path: "scripts/setup-spark.sh"
+        node.vm.provision "shell",  run: "always", path: "scripts/start-spark.sh"
+
         node.vm.provision "shell", path: "scripts/finalize-centos.sh"
     end
 end

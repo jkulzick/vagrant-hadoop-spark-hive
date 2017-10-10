@@ -49,10 +49,6 @@ function installSpark {
 	mkdir -p /usr/local/spark/logs/history
 }
 
-function startServices {
-	echo "starting Spark history service"
-	/usr/local/spark/sbin/start-history-server.sh
-}
 
 echo "setup spark"
 
@@ -60,6 +56,6 @@ installSpark
 setupSpark
 setupEnvVars
 setupHistoryServer
-startServices
+
 
 echo "spark setup complete"
