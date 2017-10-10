@@ -37,12 +37,11 @@ function setupEnvVars {
 	. /etc/profile.d/hive.sh
 }
 
-function runHiveServices {
-	echo "running hive metastore"
-    nohup hive --service metastore < /dev/null > /usr/local/hive/logs/hive_metastore_`date +"%Y%m%d%H%M%S"`.log 2>&1 &
-
-	echo "running hive server2"
-    nohup hive --service hiveserver2 < /dev/null > /usr/local/hive/logs/hive_server2_`date +"%Y%m%d%H%M%S"`.log 2>&1 &
+function initSchema {
+	yum -y install wget
+	wget http://central.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar
+	mv mysql-connector-java-8.0.7-dmr.jar $HIVE_HOME/lib/
+	$HIVE_HOME/bin/schematool -dbType mysql -initSchema
 }
 
 echo "setup hive"
@@ -50,12 +49,6 @@ echo "setup hive"
 installHive
 setupHive
 setupEnvVars
-
-yum -y install wget
-wget http://central.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar
-mv mysql-connector-java-8.0.7-dmr.jar $HIVE_HOME/lib/
-$HIVE_HOME/bin/schematool -dbType mysql -initSchema
-
-#runHiveServices
+initSchema
 
 echo "hive setup complete"

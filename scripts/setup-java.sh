@@ -1,4 +1,5 @@
 #!/bin/bash
+
 source "/vagrant/scripts/common.sh"
 
 function installLocalJava {
@@ -10,7 +11,6 @@ function installLocalJava {
 function installRemoteJava {
 	echo "install open jdk"
 	yum install -y java-1.8.0-openjdk*
-	#yum install -y java-1.7.0-openjdk*
 }
 
 function setupJava {
@@ -37,6 +37,9 @@ function installJava {
 }
 
 echo "setup java"
+
 installJava
 setupJava
 setupEnvVars
+
+echo "java setup complete"

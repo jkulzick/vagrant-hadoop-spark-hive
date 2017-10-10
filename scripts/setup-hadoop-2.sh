@@ -18,8 +18,6 @@ function setupHdfs {
     hdfs dfs -chmod -R 777 /var
 }
 
-echo "setup hadoop"
-
 setupHdfs
 
 echo "hadoop setup complete"

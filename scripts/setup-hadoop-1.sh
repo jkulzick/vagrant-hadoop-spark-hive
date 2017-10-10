@@ -55,7 +55,4 @@ installHadoop
 setupHadoop
 setupEnvVars
 formatHdfs
-#startDaemons
-#setupHdfs
 
-#echo "hadoop setup complete"
