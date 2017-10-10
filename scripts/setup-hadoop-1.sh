@@ -50,7 +50,7 @@ function formatHdfs {
 }
 
 function startDaemons {
-    /vagrant/scripts/start-hadoop.sh
+    #/vagrant/scripts/start-hadoop.sh
 }
 
 function setupHdfs {
@@ -73,7 +73,7 @@ installHadoop
 setupHadoop
 setupEnvVars
 formatHdfs
-startDaemons
-setupHdfs
+#startDaemons
+#setupHdfs
 
-echo "hadoop setup complete"
+#echo "hadoop setup complete"

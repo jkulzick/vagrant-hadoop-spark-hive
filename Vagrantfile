@@ -23,8 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.provision "shell", path: "scripts/setup-mysql.sh"
         node.vm.provision "shell", path: "scripts/setup-java.sh"
 
-        node.vm.provision "shell", path: "scripts/setup-hadoop.sh"
-        #node.vm.provision "shell",  run: "always", path: "scripts/start-hadoop.sh"
+        node.vm.provision "shell", path: "scripts/setup-hadoop-1.sh"
+        node.vm.provision "shell",  run: "always", path: "scripts/start-hadoop.sh"
+        node.vm.provision "shell", path: "scripts/setup-hadoop-2.sh"
 
         node.vm.provision "shell", path: "scripts/setup-hive.sh"
         node.vm.provision "shell",  run: "always", path: "scripts/start-hive.sh"
