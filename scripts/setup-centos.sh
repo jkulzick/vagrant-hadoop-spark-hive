@@ -45,6 +45,9 @@ function setupUtilities {
 	yum -y install wget
 }
 
+echo "setting up external yum cache"
+cp /vagrant/resources/yumconf/yum.conf /etc/
+
 echo "setup centos"
 disableFirewall
 
