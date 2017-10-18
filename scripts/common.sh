@@ -6,7 +6,7 @@ JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
 # hadoop
 HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
-HADOOP_VERSION=hadoop-2.7.3
+HADOOP_VERSION=hadoop-2.8.1
 HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
 HADOOP_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hadoop/core/$HADOOP_VERSION/$HADOOP_ARCHIVE
 HADOOP_RES_DIR=/vagrant/resources/hadoop
@@ -21,7 +21,7 @@ HIVE_CONF=/usr/local/hive/conf
 # spark
 SPARK_VERSION=spark-2.2.0
 SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
-SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
+SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-without-hadoop.tgz
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 

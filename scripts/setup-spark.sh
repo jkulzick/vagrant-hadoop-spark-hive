@@ -45,7 +45,7 @@ function installSpark {
 	else
 		installRemoteSpark
 	fi
-	ln -s /usr/local/$SPARK_VERSION-bin-hadoop2.7 /usr/local/spark
+	ln -s /usr/local/$SPARK_VERSION-bin-without-hadoop /usr/local/spark
 	mkdir -p /usr/local/spark/logs/history
 }
 
