@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
-    <property>
+        <property>
         <name>dfs.namenode.name.dir</name>
-        <value>file:///var/hadoop/hadoop-namenode</value>
+        <value>file:///mnt/big_boi/hadoop_data/hadoop-namenode</value>
     </property>
     <property>
         <name>dfs.datanode.data.dir</name>
-        <value>file:///var/hadoop/hadoop-datanode</value>
+        <value>file:///mnt/big_boi/hadoop_data/hadoop-datanode</value>
     </property>
     <property>
         <name>dfs.webhdfs.enabled</name>
