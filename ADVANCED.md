@@ -5,7 +5,7 @@ Additional virtual machine details
 # Useful Vagrant commands
 
 1. Run ```vagrant ssh``` to get into your VM.
-2. Run ```vagrant halt`` to stop your VM.
+2. Run ```vagrant halt``` to stop your VM.
 3. Run ```vagrant destroy``` when you want to destroy and get rid of the VM, or
 ```vagrant destroy && vagrant up``` to destroy and bring up a new VM.
 
