@@ -54,6 +54,11 @@ take a look at [ADVANCED.md](ADVANCED.md).
 
 The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
 
+# Future plans
+* Consistently keep project up to date with modern versions of services such as Hadoop, Spark and Hive
+* Consider other useful services related to Hadoop, Spark and Hive to be added
+* Work towards provisioning multiple boxes to work together over a local network
+
 # Credits
 
 This project is based on the great work carried out at
