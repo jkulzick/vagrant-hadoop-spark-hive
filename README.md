@@ -21,7 +21,7 @@ The virtual machine will be running the following services:
 1. [Download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
 3. Run ```vagrant box add centos/7```
-4. Go to [releases](https://github.com/alexholmes/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
+4. Go to [releases](https://github.com/Tello-Wharton/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
 5. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive-<version>`).
 6. Run ```vagrant up``` to create the VM.
 7. Execute ```vagrant ssh``` to login to the VM.
