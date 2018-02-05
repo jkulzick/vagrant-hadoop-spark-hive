@@ -25,6 +25,7 @@ The virtual machine will be running the following services:
 5. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive-<version>`).
 6. Run ```vagrant up``` to create the VM.
 7. Execute ```vagrant ssh``` to login to the VM.
+8. When inside the shell, use ```sudo -s``` to switch to root, which is how you should access Hadoop, Spark and Hive services.
 
 # Web user interfaces
 
