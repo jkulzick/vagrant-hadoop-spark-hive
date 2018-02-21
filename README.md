@@ -62,6 +62,7 @@ The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
 * Consistently keep project up to date with modern versions of services such as Hadoop, Spark and Hive
 * Consider other useful services related to Hadoop, Spark and Hive to be added
 * Work towards provisioning multiple boxes to work together over a local network
+* Make .sh scripts work to provision environment on a regular centos machine such as a server
 
 # Credits
 
