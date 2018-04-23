@@ -18,13 +18,17 @@ The virtual machine will be running the following services:
 
 # Getting Started
 
-1. [Download and install VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html).
-3. Run ```vagrant box add centos/7```
-4. Go to [releases](https://github.com/Tello-Wharton/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
-5. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive-<version>`).
-6. Run ```vagrant up``` to create the VM.
-7. Execute ```vagrant ssh``` to login to the VM.
+1. [Download and install VirtualBox 5.1.x](https://www.virtualbox.org/wiki/Downloads)
+2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html)
+3. [Download and install Git for Windows](https://git-scm.com/) (Windows only)
+4. Open Terminal or Git Bash
+5. Run ```vagrant box add centos/7```
+6. Go to [releases](https://github.com/Tello-Wharton/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
+7. Run ```chmod -R 755 vagrant-hadoop-spark-hive``` where "vagrant-hadoop-spark-hive" is the name of the project folder (Linux and Mac only)
+8. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive`).
+9. Run ```vagrant up``` to create the VM.
+10. Use ```vagrant ssh``` to login to the VM.
+11. When inside the shell, use ```sudo -s``` to switch to root, which is how you should access Hadoop, Spark and Hive services.
 
 # Web user interfaces
 
@@ -58,6 +62,7 @@ The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
 * Consistently keep project up to date with modern versions of services such as Hadoop, Spark and Hive
 * Consider other useful services related to Hadoop, Spark and Hive to be added
 * Work towards provisioning multiple boxes to work together over a local network
+* Make .sh scripts work to provision environment on a regular centos machine such as a server
 
 # Credits
 
