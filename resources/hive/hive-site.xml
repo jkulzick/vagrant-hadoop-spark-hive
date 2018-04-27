@@ -51,12 +51,6 @@
 
 
     <property>
-        <name>hive.server2.enable.impersonation</name>
-        <description>Enable user impersonation for HiveServer2</description>
-        <value>true</value>
-    </property>
-
-    <property>
         <name>hive.server2.enable.doAs</name>
         <value>true</value>
         <description>Set this property to enable impersonation in Hive Server 2</description>
