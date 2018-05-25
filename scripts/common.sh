@@ -11,6 +11,14 @@ HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
 HADOOP_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hadoop/core/$HADOOP_VERSION/$HADOOP_ARCHIVE
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
+# hbase
+HBASE_DIRECTORY=/usr/local/hbase
+HBASE_CONF=$HBASE_DIRECTORY/conf
+HBASE_VERSION=1.4.4
+HBASE_ARCHIVE=hbase-$HBASE_VERSION-bin.tar.gz
+HBASE_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hbase/$HBASE_VERSION/$HBASE_ARCHIVE
+HBASE_RES_DIR=/vagrant/resources/hbase
+
 # hive
 HIVE_VERSION=hive-2.3.2
 HIVE_ARCHIVE=apache-$HIVE_VERSION-bin.tar.gz
