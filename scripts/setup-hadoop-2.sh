@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 # https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-common/yarn-default.xml
 
 source "/vagrant/scripts/common.sh"

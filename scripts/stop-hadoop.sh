@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 source "/vagrant/scripts/common.sh"
 
 function stopDaemons {

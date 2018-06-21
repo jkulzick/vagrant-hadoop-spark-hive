@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 # http://www.cloudera.com/content/cloudera/en/documentation/cdh4/v4-2-0/CDH4-Installation-Guide/cdh4ig_topic_18_4.html
 
 function runHiveServices {

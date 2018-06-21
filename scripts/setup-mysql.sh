@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e -x
+
 function installMySql {
 	echo "install mariadb"
 

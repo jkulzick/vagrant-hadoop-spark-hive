@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e -x
+
 # https://docs.vagrantup.com/v2/provisioning/shell.html
 
 source "/vagrant/scripts/common.sh"
