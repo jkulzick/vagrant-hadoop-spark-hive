@@ -44,5 +44,5 @@ Java.
 A list of available Vagrant boxes is shown at http://www.vagrantbox.es.
 
 # Vagrant box location
-The Vagrant box is downloaded by default to the ~/.vagrant.d/boxes directory. On Windows, this is C:/Users/{your-username}/.vagrant.d/boxes.
+The Vagrant box is downloaded by default to the ~/.vagrant.d/boxes directory.
 
