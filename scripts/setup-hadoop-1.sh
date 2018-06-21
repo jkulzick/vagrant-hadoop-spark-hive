@@ -1,20 +1,10 @@
 #!/bin/bash
 
+set -e -x
+
 # https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-common/yarn-default.xml
 
 source "/vagrant/scripts/common.sh"
-
-function installLocalHadoop {
-	echo "install hadoop from local file"
-	FILE=/vagrant/resources/$HADOOP_ARCHIVE
-	tar -xzf $FILE -C /usr/local
-}
-
-function installRemoteHadoop {
-	echo "install hadoop from remote file"
-	curl -sS -o /vagrant/resources/$HADOOP_ARCHIVE -O -L $HADOOP_MIRROR_DOWNLOAD
-	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local
-}
 
 function setupHadoop {
 	echo "creating hadoop directories"
@@ -36,17 +26,37 @@ function setupEnvVars {
 }
 
 function installHadoop {
-	if resourceExists $HADOOP_ARCHIVE; then
-		installLocalHadoop
-	else
-		installRemoteHadoop
+	if ! resourceExists $HADOOP_ARCHIVE; then
+	    echo "downloading $HADOOP_ARCHIVE"
+	    curl -sS -o /vagrant/resources/$HADOOP_ARCHIVE -O -L $HADOOP_MIRROR_DOWNLOAD
 	fi
-	ln -s /usr/local/$HADOOP_VERSION /usr/local/hadoop
+
+    echo "installing hadoop"
+	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local
+	ln -s /usr/local/$HADOOP_ARCHIVE_PREFIX /usr/local/hadoop
 }
 
 function formatHdfs {
     echo "formatting HDFS"
     hdfs namenode -format
+}
+
+function installHadoopAws {
+	if ! resourceExists $HADOOP_AWS_JAR; then
+	    echo "downloading $HADOOP_AWS_JAR"
+	    curl -sS -o /vagrant/resources/$HADOOP_AWS_JAR -O -L $HADOOP_AWS_MAVEN_DOWNLOAD
+	fi
+
+    cp -f /vagrant/resources/$HADOOP_AWS_JAR $HADOOP_HOME/share/hadoop/tools/lib
+}
+
+function installAwsJava {
+	if ! resourceExists $AWS_JAVA_JAR; then
+	    echo "downloading $AWS_JAVA_JAR"
+	    curl -sS -o /vagrant/resources/$HADOOP_AWS_JAR -O -L $AWS_JAVA_MAVEN_DOWNLOAD
+	fi
+
+    cp -f /vagrant/resources/$AWS_JAVA_JAR $HADOOP_HOME/share/hadoop/tools/lib
 }
 
 echo "setup hadoop"
@@ -55,4 +65,5 @@ installHadoop
 setupHadoop
 setupEnvVars
 formatHdfs
-
+installHadoopAws
+installAwsJava
