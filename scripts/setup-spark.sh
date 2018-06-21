@@ -1,20 +1,10 @@
 #!/bin/bash
 
+set -e -x
+
 # http://www.cloudera.com/content/cloudera/en/documentation/core/v5-2-x/topics/cdh_ig_spark_configure.html
 
 source "/vagrant/scripts/common.sh"
-
-function installLocalSpark {
-	echo "install spark from local file"
-	FILE=/vagrant/resources/$SPARK_ARCHIVE
-	tar -xzf $FILE -C /usr/local
-}
-
-function installRemoteSpark {
-	echo "install spark from remote file"
-	curl -sS -o /vagrant/resources/$SPARK_ARCHIVE -O -L $SPARK_MIRROR_DOWNLOAD
-	tar -xzf /vagrant/resources/$SPARK_ARCHIVE -C /usr/local
-}
 
 function setupSpark {
 	echo "setup spark"
@@ -40,12 +30,14 @@ function setupHistoryServer {
 }
 
 function installSpark {
-	if resourceExists $SPARK_ARCHIVE; then
-		installLocalSpark
-	else
-		installRemoteSpark
+	if ! resourceExists $SPARK_ARCHIVE; then
+	    echo "downloading $SPARK_ARCHIVE"
+	    curl -sS -o /vagrant/resources/$SPARK_ARCHIVE -O -L $SPARK_MIRROR_DOWNLOAD
 	fi
-	ln -s /usr/local/$SPARK_VERSION-bin-hadoop2.7 /usr/local/spark
+
+    echo "installing spark"
+    tar -xzf /vagrant/resources/$SPARK_ARCHIVE -C /usr/local
+	ln -s /usr/local/$SPARK_ARCHIVE_PREFIX /usr/local/spark
 	mkdir -p /usr/local/spark/logs/history
 }
 
