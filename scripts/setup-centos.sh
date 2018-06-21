@@ -46,6 +46,7 @@ function setupUtilities {
     updatedb
 
 	yum -y install wget
+	yum -y install vim
 }
 
 echo "setting up external yum cache"
