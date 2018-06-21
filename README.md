@@ -18,22 +18,14 @@ The virtual machine will be running the following services:
 
 # Getting Started
 
-1. Run `git clone git@github.com:jkulzick/vagrant-hadoop-spark-hive` if you do
-   not have the project or `git pull` from the project directory to pull the
-   latest version.
-2. Change to the project directory if you are not already there
-   (i.e. `cd vagrant-hadoop-spark-hive`).
-3. Run `tbd` if this is your first time to install the required dependencies
-4. Run ```vagrant up``` to create the VM.
-5. Use ```vagrant ssh``` to login to the VM.
-6. When inside the shell, use ```sudo -s``` to switch to root, which is how
+1. Run `git clone git@github.com:jkulzick/vagrant-hadoop-spark-hive`
+2. Run `cd vagrant-hadoop-spark-hive`
+3. Run `setup.sh` to install the required dependencies
+   (virtualbox, vagrant, etc.)
+4. Run `vagrant up` to create the VM.
+5. Use `vagrant ssh` to login to the VM.
+6. When inside the shell, use `sudo -s` to switch to root, which is how
    you should access Hadoop, Spark and Hive services.
-
-
-1. [Download and install VirtualBox 5.2.12](https://www.virtualbox.org/wiki/Downloads)
-2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html)
-4. Run ```vagrant box add centos/7```
-7. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive`).
 
 # Web user interfaces
 
