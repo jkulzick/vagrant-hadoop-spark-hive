@@ -26,7 +26,7 @@ AWS_JAVA_JAR=$AWS_JAVA_JAR_PREFIX.jar
 AWS_JAVA_MAVEN_DOWNLOAD=http://central.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/AWS_JAVA_VERSION/AWS_JAVA_JAR
 
 # hive
-HIVE_VERSION=hive-3.0.0
+HIVE_VERSION=hive-3.1.0
 HIVE_ARCHIVE_PREFIX=apache-$HIVE_VERSION-bin
 HIVE_ARCHIVE=HIVE_ARCHIVE_PREFIX.tar.gz
 HIVE_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hive/$HIVE_VERSION/$HIVE_ARCHIVE
