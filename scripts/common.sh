@@ -1,27 +1,43 @@
 #!/bin/bash
 
+set -e -x
+
 # java
 JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
 
 # hadoop
 HADOOP_PREFIX=/usr/local/hadoop
 HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
-HADOOP_VERSION=hadoop-2.7.5
-HADOOP_ARCHIVE=$HADOOP_VERSION.tar.gz
-HADOOP_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hadoop/core/$HADOOP_VERSION/$HADOOP_ARCHIVE
+HADOOP_VERSION=hadoop-3.1.0
+HADOOP_ARCHIVE_PREFIX=$HADOOP_VERSION
+HADOOP_ARCHIVE=$HADOOP_ARCHIVE_PREFIX.tar.gz
+HADOOP_MIRROR_DOWNLOAD=http://apache.mirrors.tds.net/hadoop/core/$HADOOP_VERSION/$HADOOP_ARCHIVE
 HADOOP_RES_DIR=/vagrant/resources/hadoop
 
+# aws
+HADOOP_AWS_VERSION=3.1.0
+HADOOP_AWS_JAR_PREFIX=hadoop-aws-$HADOOP_AWS_VERSION
+HADOOP_AWS_JAR=$HADOOP_AWS_JAR_PREFIX.jar
+HADOOP_AWS_MAVEN_DOWNLOAD=http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/$HADOOP_AWS_VERSION/$HADOOP_AWS_JAR
+
+AWS_JAVA_VERSION=1.11.351
+AWS_JAVA_JAR_PREFIX=aws-java-sdk-bundle-$AWS_JAVA_VERSION
+AWS_JAVA_JAR=$AWS_JAVA_JAR_PREFIX.jar
+AWS_JAVA_MAVEN_DOWNLOAD=http://central.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/AWS_JAVA_VERSION/AWS_JAVA_JAR
+
 # hive
-HIVE_VERSION=hive-2.3.2
-HIVE_ARCHIVE=apache-$HIVE_VERSION-bin.tar.gz
+HIVE_VERSION=hive-3.0.0
+HIVE_ARCHIVE_PREFIX=apache-$HIVE_VERSION-bin
+HIVE_ARCHIVE=HIVE_ARCHIVE_PREFIX.tar.gz
 HIVE_MIRROR_DOWNLOAD=http://archive.apache.org/dist/hive/$HIVE_VERSION/$HIVE_ARCHIVE
 HIVE_RES_DIR=/vagrant/resources/hive
 HIVE_CONF=/usr/local/hive/conf
 
 # spark
-SPARK_VERSION=spark-2.2.1
-SPARK_ARCHIVE=$SPARK_VERSION-bin-hadoop2.tgz
-SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_VERSION-bin-hadoop2.7.tgz
+SPARK_VERSION=spark-2.3.1
+SPARK_ARCHIVE_PREFIX=$SPARK_VERSION-bin-without-hadoop
+SPARK_ARCHIVE=$SPARK_ARCHIVE_PREFIX.tar.gz
+SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_ARCHIVE
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
 
