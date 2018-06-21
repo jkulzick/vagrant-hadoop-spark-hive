@@ -44,7 +44,8 @@ function formatHdfs {
 function installHadoopAws {
 	if ! resourceExists $HADOOP_AWS_JAR; then
 	    echo "downloading $HADOOP_AWS_JAR"
-	    curl -sS -o /vagrant/resources/$HADOOP_AWS_JAR -O -L $HADOOP_AWS_MAVEN_DOWNLOAD
+	    wget $HADOOP_AWS_MAVEN_DOWNLOAD
+	    mv $HADOOP_AWS_JAR /vagrant/resources
 	fi
 
     cp -f /vagrant/resources/$HADOOP_AWS_JAR $HADOOP_HOME/share/hadoop/tools/lib
@@ -53,7 +54,8 @@ function installHadoopAws {
 function installAwsJava {
 	if ! resourceExists $AWS_JAVA_JAR; then
 	    echo "downloading $AWS_JAVA_JAR"
-	    curl -sS -o /vagrant/resources/$HADOOP_AWS_JAR -O -L $AWS_JAVA_MAVEN_DOWNLOAD
+	    wget $AWS_JAVA_MAVEN_DOWNLOAD
+	    mv $AWS_JAVA_JAR /vagrant/resources
 	fi
 
     cp -f /vagrant/resources/$AWS_JAVA_JAR $HADOOP_HOME/share/hadoop/tools/lib
