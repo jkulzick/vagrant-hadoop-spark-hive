@@ -5,9 +5,9 @@ Vagrant for Hadoop, Spark and Hive
 
 Vagrant project to spin up a single virtual machine running:
 
-* Hadoop 2.7.5
-* Hive 2.3.2
-* Spark 2.2.1
+* Hadoop 3.1.0
+* Hive 3.1.0
+* Spark 2.3.1
 
 The virtual machine will be running the following services:
 
@@ -18,16 +18,22 @@ The virtual machine will be running the following services:
 
 # Getting Started
 
+1. Run `git clone git@github.com:jkulzick/vagrant-hadoop-spark-hive` if you do
+   not have the project or `git pull` from the project directory to pull the
+   latest version.
+2. Change to the project directory if you are not already there
+   (i.e. `cd vagrant-hadoop-spark-hive`).
+3. Run `tbd` if this is your first time to install the required dependencies
+4. Run ```vagrant up``` to create the VM.
+5. Use ```vagrant ssh``` to login to the VM.
+6. When inside the shell, use ```sudo -s``` to switch to root, which is how
+   you should access Hadoop, Spark and Hive services.
+
+
 1. [Download and install VirtualBox 5.2.12](https://www.virtualbox.org/wiki/Downloads)
 2. [Download and install Vagrant](http://www.vagrantup.com/downloads.html)
-3. Open Terminal or Git Bash
 4. Run ```vagrant box add centos/7```
-5. Go to [releases](https://github.com/Tello-Wharton/vagrant-hadoop-spark-hive/releases) and download and extract the latest source of this project.
-6. Run ```chmod -R 755 vagrant-hadoop-spark-hive``` where "vagrant-hadoop-spark-hive" is the name of the project folder (Linux and Mac only)
 7. In your terminal change your directory into the project directory (i.e. `cd vagrant-hadoop-spark-hive`).
-8. Run ```vagrant up``` to create the VM.
-9. Use ```vagrant ssh``` to login to the VM.
-10. When inside the shell, use ```sudo -s``` to switch to root, which is how you should access Hadoop, Spark and Hive services.
 
 # Web user interfaces
 
@@ -56,12 +62,6 @@ take a look at [ADVANCED.md](ADVANCED.md).
 # For developers
 
 The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
-
-# Future plans
-* Consistently keep project up to date with modern versions of services such as Hadoop, Spark and Hive
-* Consider other useful services related to Hadoop, Spark and Hive to be added
-* Work towards provisioning multiple boxes to work together over a local network
-* Make .sh scripts work to provision environment on a regular centos machine such as a server
 
 # Credits
 
