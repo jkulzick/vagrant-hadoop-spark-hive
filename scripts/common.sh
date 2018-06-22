@@ -23,7 +23,7 @@ HADOOP_AWS_MAVEN_DOWNLOAD=http://central.maven.org/maven2/org/apache/hadoop/hado
 AWS_JAVA_VERSION=1.11.351
 AWS_JAVA_JAR_PREFIX=aws-java-sdk-bundle-$AWS_JAVA_VERSION
 AWS_JAVA_JAR=$AWS_JAVA_JAR_PREFIX.jar
-AWS_JAVA_MAVEN_DOWNLOAD=http://central.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/AWS_JAVA_VERSION/AWS_JAVA_JAR
+AWS_JAVA_MAVEN_DOWNLOAD=http://central.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/$AWS_JAVA_VERSION/$AWS_JAVA_JAR
 
 # hive
 HIVE_VERSION=hive-3.1.0
