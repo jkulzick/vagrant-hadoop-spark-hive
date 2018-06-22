@@ -13,4 +13,7 @@ brew cask install virtualbox
 brew cask install vagrant
 
 # add centos/7 box to vagrant
-vagrant box add centos/7 --provider virtualbox
+VAGRANT_BOXES=$(vagrant box list)
+if [[ $VAGRANT_BOXES != "centos/7"*"virtualbox"* ]]; then
+    vagrant box add centos/7 --provider virtualbox
+fi
