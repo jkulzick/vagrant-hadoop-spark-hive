@@ -17,7 +17,7 @@
 export HADOOP_YARN_USER=${HADOOP_YARN_USER:-yarn}
 
 # resolve links - $0 may be a softlink
-export YARN_CONF_DIR="${YARN_CONF_DIR:-$HADOOP_YARN_HOME/conf}"
+export HADOOP_CONF_DIR="${HADOOP_CONF_DIR:-$HADOOP_YARN_HOME/conf}"
 
 # some Java parameters
 # export JAVA_HOME=/home/y/libexec/jdk1.6.0/
@@ -48,7 +48,7 @@ fi
 # Specify the max Heapsize for the ResourceManager using a numerical value
 # in the scale of MB. For example, to specify an jvm option of -Xmx1000m, set
 # the value to 1000.
-# This value will be overridden by an Xmx setting specified in either YARN_OPTS
+# This value will be overridden by an Xmx setting specified in either HADOOP_OPTS
 # and/or YARN_RESOURCEMANAGER_OPTS.
 # If not specified, the default value will be picked from either YARN_HEAPMAX
 # or JAVA_HEAP_MAX with YARN_HEAPMAX as the preferred option of the two.
@@ -57,15 +57,15 @@ fi
 # Specify the max Heapsize for the HistoryManager using a numerical value
 # in the scale of MB. For example, to specify an jvm option of -Xmx1000m, set
 # the value to 1000.
-# This value will be overridden by an Xmx setting specified in either YARN_OPTS
+# This value will be overridden by an Xmx setting specified in either HADOOP_OPTS
 # and/or YARN_HISTORYSERVER_OPTS.
 # If not specified, the default value will be picked from either YARN_HEAPMAX
 # or JAVA_HEAP_MAX with YARN_HEAPMAX as the preferred option of the two.
 #export YARN_HISTORYSERVER_HEAPSIZE=1000
 
 # Specify the JVM options to be used when starting the ResourceManager.
-# These options will be appended to the options specified as YARN_OPTS
-# and therefore may override any similar flags set in YARN_OPTS
+# These options will be appended to the options specified as HADOOP_OPTS
+# and therefore may override any similar flags set in HADOOP_OPTS
 #export YARN_RESOURCEMANAGER_OPTS=
 
 # Node Manager specific parameters
@@ -73,15 +73,15 @@ fi
 # Specify the max Heapsize for the NodeManager using a numerical value
 # in the scale of MB. For example, to specify an jvm option of -Xmx1000m, set
 # the value to 1000.
-# This value will be overridden by an Xmx setting specified in either YARN_OPTS
+# This value will be overridden by an Xmx setting specified in either HADOOP_OPTS
 # and/or YARN_NODEMANAGER_OPTS.
 # If not specified, the default value will be picked from either YARN_HEAPMAX
 # or JAVA_HEAP_MAX with YARN_HEAPMAX as the preferred option of the two.
 #export YARN_NODEMANAGER_HEAPSIZE=1000
 
 # Specify the JVM options to be used when starting the NodeManager.
-# These options will be appended to the options specified as YARN_OPTS
-# and therefore may override any similar flags set in YARN_OPTS
+# These options will be appended to the options specified as HADOOP_OPTS
+# and therefore may override any similar flags set in HADOOP_OPTS
 #export YARN_NODEMANAGER_OPTS=
 
 # so that filenames w/ spaces are handled correctly in loops below
@@ -89,11 +89,11 @@ IFS=
 
 
 # default log directory & file
-if [ "$YARN_LOG_DIR" = "" ]; then
-  YARN_LOG_DIR="$HADOOP_YARN_HOME/logs"
+if [ "$HADOOP_LOG_DIR" = "" ]; then
+  HADOOP_LOG_DIR="$HADOOP_YARN_HOME/logs"
 fi
-if [ "$YARN_LOGFILE" = "" ]; then
-  YARN_LOGFILE='yarn.log'
+if [ "$HADOOP_LOGFILE" = "" ]; then
+  HADOOP_LOGFILE='yarn.log'
 fi
 
 # default policy file for service-level authorization
@@ -105,17 +105,17 @@ fi
 unset IFS
 
 
-YARN_OPTS="$YARN_OPTS -Dhadoop.log.dir=$YARN_LOG_DIR"
-YARN_OPTS="$YARN_OPTS -Dyarn.log.dir=$YARN_LOG_DIR"
-YARN_OPTS="$YARN_OPTS -Dhadoop.log.file=$YARN_LOGFILE"
-YARN_OPTS="$YARN_OPTS -Dyarn.log.file=$YARN_LOGFILE"
-YARN_OPTS="$YARN_OPTS -Dyarn.home.dir=$YARN_COMMON_HOME"
-YARN_OPTS="$YARN_OPTS -Dyarn.id.str=$YARN_IDENT_STRING"
-YARN_OPTS="$YARN_OPTS -Dhadoop.root.logger=${YARN_ROOT_LOGGER:-INFO,console}"
-YARN_OPTS="$YARN_OPTS -Dyarn.root.logger=${YARN_ROOT_LOGGER:-INFO,console}"
+HADOOP_OPTS="$HADOOP_OPTS -Dhadoop.log.dir=$HADOOP_LOG_DIR"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.log.dir=$HADOOP_LOG_DIR"
+HADOOP_OPTS="$HADOOP_OPTS -Dhadoop.log.file=$HADOOP_LOGFILE"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.log.file=$HADOOP_LOGFILE"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.home.dir=$YARN_COMMON_HOME"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.id.str=$HADOOP_IDENT_STRING"
+HADOOP_OPTS="$HADOOP_OPTS -Dhadoop.root.logger=${YARN_ROOT_LOGGER:-INFO,console}"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.root.logger=${YARN_ROOT_LOGGER:-INFO,console}"
 if [ "x$JAVA_LIBRARY_PATH" != "x" ]; then
-  YARN_OPTS="$YARN_OPTS -Djava.library.path=$JAVA_LIBRARY_PATH"
+  HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=$JAVA_LIBRARY_PATH"
 fi  
-YARN_OPTS="$YARN_OPTS -Dyarn.policy.file=$YARN_POLICYFILE"
+HADOOP_OPTS="$HADOOP_OPTS -Dyarn.policy.file=$YARN_POLICYFILE"
 
 
