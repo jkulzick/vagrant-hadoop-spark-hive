@@ -5,9 +5,10 @@ set -e -x
 function installMySql {
 	echo "install mariadb"
 
-	yum -y install mariadb-server
-	systemctl start mariadb
-	systemctl enable mariadb
+	yum -y install MariaDB-server MariaDB-client
+	systemctl start mysql
+	systemctl enable mysql
+	mysql_upgrade
 
 }
 
@@ -15,9 +16,9 @@ function setupUsers {
 	echo "setup users"
 
 	cat <<-EOF | mysql -u root
-		CREATE DATABASE metastore;
+		CREATE DATABASE IF NOT EXISTS metastore;
 		USE metastore;
-		CREATE USER 'hive'@'metastorehost' IDENTIFIED BY 'cake';
+		CREATE USER IF NOT EXISTS 'hive'@'metastorehost' IDENTIFIED BY 'cake';
 		REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'hive'@'metastorehost';
 		FLUSH PRIVILEGES;
 		GRANT ALL PRIVILEGES ON *.* TO 'hive'@'localhost' IDENTIFIED BY 'cake';

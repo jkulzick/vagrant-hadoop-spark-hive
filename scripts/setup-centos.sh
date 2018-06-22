@@ -47,6 +47,8 @@ function setupUtilities {
 
 echo "setting up external yum cache"
 cp /vagrant/resources/yumconf/yum.conf /etc/
+cp /vagrant/resources/yumconf/MariaDB10.repo /etc/yum.repos.d/
+yum -y update
 
 echo "setup centos"
 disableFirewall
