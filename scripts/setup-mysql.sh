@@ -6,8 +6,8 @@ function installMySql {
 	echo "install mariadb"
 
 	yum -y install MariaDB-server MariaDB-client
-	systemctl start mysql
-	systemctl enable mysql
+	systemctl start mariadb
+	systemctl enable mariadb
 	mysql_upgrade
 
 }
