@@ -6,8 +6,8 @@ set -e -x
 JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
 
 # hadoop
-HADOOP_PREFIX=/usr/local/hadoop
-HADOOP_CONF=$HADOOP_PREFIX/etc/hadoop
+HADOOP_HOME=/usr/local/hadoop
+HADOOP_CONF=$HADOOP_HOME/etc/hadoop
 HADOOP_VERSION=hadoop-3.1.0
 HADOOP_ARCHIVE_PREFIX=$HADOOP_VERSION
 HADOOP_ARCHIVE=$HADOOP_ARCHIVE_PREFIX.tar.gz
