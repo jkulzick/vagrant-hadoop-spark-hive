@@ -43,5 +43,4 @@
 # - SPARK_PUBLIC_DNS, to set the public dns name of the master or workers
 
 SPARK_DAEMON_JAVA_OPTS="-Dspark.history.fs.logDirectory=hdfs:///user/spark/applicationHistory"
-
-
+SPARK_DIST_CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath)
