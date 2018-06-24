@@ -1,17 +1,6 @@
 Validating your virtual machine setup
 =====================================
 
-After the `vagrant up` command has completed, you'll have a CentOS
-virtual machine with the following installed:
-
-* Hadoop HDFS
-* Hadoop YARN
-* Hive
-* Spark
-
-Let's take a look at each one and validate that it's installed and
-setup as expected.
-
 SSH into your virtual machine.
 
     vagrant ssh
@@ -49,11 +38,9 @@ Create a table and run a query over it.
 
     select * from wordcount order by count;
 
-Next launch the interactive Spark shell.
+Next launch the interactive Scala Spark shell.
 
-    spark-shell --master yarn-client
-
-Run word count in Spark.
+    spark-shell --master yarn
 
     // enter paste mode
     :paste
@@ -66,3 +53,16 @@ Run word count in Spark.
     <ctrl-D>
 
     sc.stop
+    :quit
+
+Or launch the interactive PySpark Spark shell.
+
+    pyspark
+
+    (sc.textFile("hdfs:///user/vagrant/wordcount-input/hello.txt")
+       .flatMap(lambda line: line.split(" "))
+       .map(lambda word: (word, 1))
+       .reduceByKey(lambda x,y: x + y)
+       .foreach(lambda x: print(x)))
+
+    exit()
