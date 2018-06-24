@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # https://docs.vagrantup.com/v2/provisioning/shell.html
 
@@ -65,3 +67,5 @@ echo "setup utilities"
 setupUtilities
 
 echo "centos setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x

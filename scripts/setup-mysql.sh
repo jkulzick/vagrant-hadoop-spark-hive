@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 function installMySql {
 	echo "install mariadb"
@@ -32,3 +34,5 @@ installMySql
 setupUsers
 
 echo "mysql setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x

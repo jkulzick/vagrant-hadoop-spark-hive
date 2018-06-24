@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-common/yarn-default.xml
 
@@ -23,3 +25,5 @@ function setupHdfs {
 setupHdfs
 
 echo "hadoop setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x

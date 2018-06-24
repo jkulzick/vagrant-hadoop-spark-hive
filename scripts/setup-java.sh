@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 source "/vagrant/scripts/common.sh"
 
@@ -18,9 +20,9 @@ function installRemoteJava {
 function setupJava {
 	echo "setting up java"
 	if resourceExists $JAVA_ARCHIVE; then
-		ln -s /usr/local/jdk1.8.0_51 /usr/local/java
+		ln -s -f /usr/local/jdk1.8.0_51 /usr/local/java
 	else
-		ln -s /usr/lib/jvm/jre /usr/local/java
+		ln -s -f /usr/lib/jvm/jre /usr/local/java
 	fi
 }
 
@@ -45,3 +47,5 @@ setupJava
 setupEnvVars
 
 echo "java setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x

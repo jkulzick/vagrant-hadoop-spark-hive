@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 source "/vagrant/scripts/common.sh"
 
@@ -34,3 +36,5 @@ function startDaemons {
 }
 
 startDaemons
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
