@@ -44,3 +44,4 @@
 
 SPARK_DAEMON_JAVA_OPTS="-Dspark.history.fs.logDirectory=hdfs:///user/spark/applicationHistory"
 SPARK_DIST_CLASSPATH=$($HADOOP_HOME/bin/hadoop classpath)
+PYSPARK_PYTHON=/usr/bin/python3.6
