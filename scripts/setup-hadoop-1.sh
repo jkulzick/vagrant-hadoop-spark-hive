@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-common/yarn-default.xml
 
@@ -8,12 +10,12 @@ source "/vagrant/scripts/common.sh"
 
 function setupHadoop {
 	echo "creating hadoop directories"
-	mkdir /var/hadoop
-	mkdir /var/hadoop/hadoop-datanode
-	mkdir /var/hadoop/hadoop-namenode
-	mkdir /var/hadoop/mr-history
-	mkdir /var/hadoop/mr-history/done
-	mkdir /var/hadoop/mr-history/tmp
+	mkdir -p /var/hadoop
+	mkdir -p /var/hadoop/hadoop-datanode
+	mkdir -p /var/hadoop/hadoop-namenode
+	mkdir -p /var/hadoop/mr-history
+	mkdir -p /var/hadoop/mr-history/done
+	mkdir -p /var/hadoop/mr-history/tmp
 	
 	echo "copying over hadoop configuration files"
 	cp -f $HADOOP_RES_DIR/* $HADOOP_CONF
@@ -33,7 +35,7 @@ function installHadoop {
 
     echo "installing hadoop"
 	tar -xzf /vagrant/resources/$HADOOP_ARCHIVE -C /usr/local
-	ln -s /usr/local/$HADOOP_ARCHIVE_PREFIX /usr/local/hadoop
+	ln -s -f /usr/local/$HADOOP_ARCHIVE_PREFIX /usr/local/hadoop
 }
 
 function formatHdfs {
@@ -69,3 +71,5 @@ setupEnvVars
 formatHdfs
 installHadoopAws
 installAwsJava
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
