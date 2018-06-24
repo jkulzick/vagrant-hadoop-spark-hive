@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # http://www.cloudera.com/content/cloudera/en/documentation/cdh4/v4-2-0/CDH4-Installation-Guide/cdh4ig_topic_18_4.html
 
@@ -14,8 +16,8 @@ function installHive {
 
     echo "installing hive"
 	tar -xzf /vagrant/resources/$HIVE_ARCHIVE -C /usr/local
-	ln -s /usr/local/$HIVE_ARCHIVE_PREFIX /usr/local/hive
-	mkdir /usr/local/hive/logs /usr/local/hive/derby/
+	ln -s -f /usr/local/$HIVE_ARCHIVE_PREFIX /usr/local/hive
+	mkdir -p /usr/local/hive/logs /usr/local/hive/derby/
 }
 
 function setupHive {
@@ -30,8 +32,8 @@ function setupEnvVars {
 }
 
 function initSchema {
-	#wget http://central.maven.org/maven2/mysql/mysql-connector-java/8.0.7-dmr/mysql-connector-java-8.0.7-dmr.jar
-	#mv mysql-connector-java-8.0.7-dmr.jar $HIVE_HOME/lib/
+	wget http://central.maven.org/maven2/org/mariadb/jdbc/mariadb-java-client/2.2.5/mariadb-java-client-2.2.5.jar
+	mv mariadb-java-client-2.2.5.jar $HIVE_HOME/lib/
 	$HIVE_HOME/bin/schematool -dbType mysql -initSchema
 }
 
@@ -43,3 +45,5 @@ setupEnvVars
 initSchema
 
 echo "hive setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
