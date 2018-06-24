@@ -6,7 +6,7 @@ Vagrant for Hadoop, Spark and Hive
 Vagrant project to spin up a single virtual machine running:
 
 * Hadoop 3.1.0
-* Hive 3.1.0
+* Hive 3.0.0
 * Spark 2.3.1
 
 The virtual machine will be running the following services:
