@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # http://www.cloudera.com/content/cloudera/en/documentation/core/v5-2-x/topics/cdh_ig_spark_configure.html
 
@@ -13,7 +15,7 @@ function setupSpark {
 	cp -f /vagrant/resources/spark/spark-defaults.conf /usr/local/spark/conf
 
 	# allows spark to write to hive
-	ln -s $HIVE_CONF_DIR/hive-site.xml $SPARK_CONF_DIR/hive-site.xml
+	ln -s -f $HIVE_CONF_DIR/hive-site.xml $SPARK_CONF_DIR/hive-site.xml
 }
 
 function setupEnvVars {
@@ -37,7 +39,7 @@ function installSpark {
 
     echo "installing spark"
     tar -xzf /vagrant/resources/$SPARK_ARCHIVE -C /usr/local
-	ln -s /usr/local/$SPARK_ARCHIVE_PREFIX /usr/local/spark
+	ln -s -f /usr/local/$SPARK_ARCHIVE_PREFIX /usr/local/spark
 	mkdir -p /usr/local/spark/logs/history
 }
 
@@ -51,3 +53,5 @@ setupHistoryServer
 
 
 echo "spark setup complete"
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
