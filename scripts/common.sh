@@ -1,6 +1,8 @@
 #!/bin/bash
 
-set -e -x
+set -e
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
 
 # java
 JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
@@ -36,7 +38,7 @@ HIVE_CONF=/usr/local/hive/conf
 # spark
 SPARK_VERSION=spark-2.3.1
 SPARK_ARCHIVE_PREFIX=$SPARK_VERSION-bin-without-hadoop
-SPARK_ARCHIVE=$SPARK_ARCHIVE_PREFIX.tar.gz
+SPARK_ARCHIVE=$SPARK_ARCHIVE_PREFIX.tgz
 SPARK_MIRROR_DOWNLOAD=http://archive.apache.org/dist/spark/$SPARK_VERSION/$SPARK_ARCHIVE
 SPARK_RES_DIR=/vagrant/resources/spark
 SPARK_CONF_DIR=/usr/local/spark/conf
@@ -66,3 +68,5 @@ function fileExists {
 		return 1
 	fi
 }
+
+[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
