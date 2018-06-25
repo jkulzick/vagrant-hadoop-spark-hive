@@ -1,4 +1,4 @@
-Vagrant for Hadoop, Spark and Hive
+Vagrant for Spark, Hadoop and Hive
 ==================================
 
 # Introduction
@@ -8,8 +8,6 @@ Vagrant project to spin up a single virtual machine running:
 * Hadoop 3.1.0
 * Hive 3.0.0
 * Spark 2.3.1
-* Python 3.6
-* MariaDB 10.3
 
 The virtual machine will be running the following services:
 
@@ -24,7 +22,7 @@ The virtual machine will be running the following services:
 2. Run `cd vagrant-hadoop-spark-hive`
 3. Run `setup.sh` to install the required dependencies
    (virtualbox, vagrant, etc.)
-4. Run `vagrant up` to create the VM.
+4. Run `vagrant up --provision-with install` to create the VM.
 5. Use `vagrant ssh` to login to the VM.
 6. When inside the shell, use `sudo -s` to switch to root, which is how
    you should access Hadoop, Spark and Hive services.
