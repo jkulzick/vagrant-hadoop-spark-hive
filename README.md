@@ -60,4 +60,5 @@ The file [DEVELOP.md](DEVELOP.md) contains some tips for developers.
 # Credits
 
 This project is based on the great work carried out at
-(https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1).
+(https://github.com/vangj/vagrant-hadoop-2.4.1-spark-1.0.1) and at
+(https://github.com/Tello-Wharton/vagrant-hadoop-spark-hive).
