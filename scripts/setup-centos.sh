@@ -2,7 +2,7 @@
 
 set -e
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set -x
 
 # https://docs.vagrantup.com/v2/provisioning/shell.html
 
@@ -68,4 +68,4 @@ setupUtilities
 
 echo "centos setup complete"
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set +x

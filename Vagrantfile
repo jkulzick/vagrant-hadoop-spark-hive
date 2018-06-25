@@ -19,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.hostname = "10.211.55.101"
 
         node.vm.provision "install", type: "shell", run: "never" do |install|
-            install.env = {"DEBUG_SPARK_VAGRANT" => ENV['DEBUG_SPARK_VAGRANT']}
+            install.env = {"SPARK_CAVEMAN_DEBUG" => ENV['SPARK_CAVEMAN_DEBUG']}
             install.inline = <<-SHELL
                 /vagrant/scripts/setup-centos.sh
 
@@ -38,7 +38,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         end
 
         node.vm.provision "start", type: "shell", run: "always" do |start|
-            start.env = {"DEBUG_SPARK_VAGRANT" => ENV['DEBUG_SPARK_VAGRANT']}
+            start.env = {"SPARK_CAVEMAN_DEBUG" => ENV['SPARK_CAVEMAN_DEBUG']}
                 start.inline = <<-SHELL
                 /vagrant/scripts/start-hadoop.sh
                 /vagrant/scripts/start-hive.sh

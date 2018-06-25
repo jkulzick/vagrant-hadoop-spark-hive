@@ -2,7 +2,7 @@
 
 set -e
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set -x
 
 source "/vagrant/scripts/common.sh"
 
@@ -20,4 +20,4 @@ installPython
 
 echo "python setup complete"
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set +x

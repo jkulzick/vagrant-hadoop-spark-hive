@@ -2,7 +2,7 @@
 
 set -e
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set -x
 
 # https://hadoop.apache.org/docs/r2.4.1/hadoop-yarn/hadoop-yarn-common/yarn-default.xml
 
@@ -72,4 +72,4 @@ formatHdfs
 installHadoopAws
 installAwsJava
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set +x

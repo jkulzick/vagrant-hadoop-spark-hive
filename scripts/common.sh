@@ -2,7 +2,7 @@
 
 set -e
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set -x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set -x
 
 # java
 JAVA_ARCHIVE=jdk-8u51-linux-x64.gz
@@ -69,4 +69,4 @@ function fileExists {
 	fi
 }
 
-[ "$DEBUG_SPARK_VAGRANT" == 'true' ] && set +x
+[ "$SPARK_CAVEMAN_DEBUG" == 'true' ] && set +x
