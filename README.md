@@ -22,7 +22,9 @@ The virtual machine will be running the following services:
 2. Run `cd vagrant-hadoop-spark-hive`
 3. Run `setup.sh` to install the required dependencies
    (virtualbox, vagrant, etc.)
-4. Run `vagrant up --provision-with install` to create the VM.
+4. Run `vagrant up --provision-with install` to create the VM. Run
+   `export SPARK_CAVEMAN_DEBUG=true` beforehand to print debug output of all
+   of the steps.
 5. Use `vagrant ssh` to login to the VM.
 6. When inside the shell, use `sudo -s` to switch to root, which is how
    you should access Hadoop, Spark and Hive services.
