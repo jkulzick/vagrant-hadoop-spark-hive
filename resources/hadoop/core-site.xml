@@ -7,6 +7,15 @@
     </property>
 
     <property>
+        <name>fs.s3a.aws.credentials.provider</name>
+        <value>
+        org.apache.hadoop.fs.s3a.SimpleAWSCredentialsProvider,
+        com.amazonaws.auth.EnvironmentVariableCredentialsProvider,
+        org.apache.hadoop.fs.s3a.TemporaryAWSCredentialsProvider
+        </value>
+    </property>
+
+    <property>
         <name>fs.defaultFS</name>
         <value>hdfs://10.211.55.101</value>
     </property>
