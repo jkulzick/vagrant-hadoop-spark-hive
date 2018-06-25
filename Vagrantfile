@@ -37,8 +37,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
            SHELL
         end
 
-        node.vm.provision "start", type: "shell", do |start|
-            start.run = "always"
+        node.vm.provision "start", type: "shell", run: "always" do |start|
             start.env = {"DEBUG_SPARK_VAGRANT" => ENV['DEBUG_SPARK_VAGRANT']}
                 start.inline = <<-SHELL
                 /vagrant/scripts/start-hadoop.sh
