@@ -18,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         node.vm.network :private_network, ip: "10.211.55.101"
         node.vm.hostname = "10.211.55.101"
 
-        node.vm.provision "install", type: "shell" do |install|
+        node.vm.provision "install", type: "shell", run: "never" do |install|
             install.env = {"DEBUG_SPARK_VAGRANT" => ENV['DEBUG_SPARK_VAGRANT']}
             install.inline = <<-SHELL
                 /vagrant/scripts/setup-centos.sh
